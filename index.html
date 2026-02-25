@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naqia Firdous | Data Science Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --secondary: #636e72;
+            --accent: #00b894;
+            --accent-light: #55efc4;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --gradient: linear-gradient(135deg, #00b894 0%, #0984e3 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 5% 4rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-description {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 3rem 5%;
+            background: white;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-item i {
+            color: var(--accent);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-box {
+            width: 100%;
+            height: 400px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--background);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: var(--background);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .skill-tag.primary {
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--background);
+            border-radius: 4px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Technical Stack */
+        .tech-comparison {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .tech-comparison h4 {
+            margin-bottom: 1rem;
+        }
+
+        .tech-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--background);
+            border-radius: 10px;
+            min-width: 120px;
+        }
+
+        .tech-item strong {
+            display: block;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--background);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            padding: 2rem;
+            color: white;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header span {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech span {
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--accent);
+        }
+
+        /* Learning Path Section */
+        .learning {
+            background: var(--background);
+        }
+
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .roadmap-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s;
+        }
+
+        .roadmap-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .roadmap-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .roadmap-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .roadmap-item .status {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--accent);
+        }
+
+        /* Personality & Values */
+        .personality {
+            background: white;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .trait-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .trait-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .trait-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .trait-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .trait-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Goals Section */
+        .goals {
+            background: var(--background);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .goal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .goal-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .goal-card h3 i {
+            color: var(--accent);
+        }
+
+        .goal-card ul {
+            list-style: none;
+        }
+
+        .goal-card li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .goal-card li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Naqia<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Data Science Student</div>
+            <h1>Naqia <span>Firdous</span></h1>
+            <p class="hero-subtitle">Aspiring Data Scientist & ML Enthusiast</p>
+            <p class="hero-description">
+                A strategic thinker pursuing BS Data Science with a strong foundation in C++ and Python. 
+                Passionate about machine learning, analytics, and building impactful projects. 
+                Driven by continuous learning and personal growth.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">7/10</div>
+            <div class="stat-label">Math Comfort Level</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div class="stat-label">Languages Learning</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Major Project</div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="line"></div>
+            <p>Understanding my journey and what drives my passion for data science</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Strategic Thinker in the Making</h3>
+                <p>
+                    I'm currently pursuing a Bachelor's degree in Data Science (BSDS), a choice I made after carefully 
+                    evaluating both Computer Science and Data Science. This deliberate decision reflects my strategic 
+                    approach to career positioning.
+                </p>
+                <p>
+                    I value flexibility and want to keep doors open to Artificial Intelligence, Software Engineering, 
+                    Machine Learning, and Advanced Analytics roles. My focus is on long-term vision rather than 
+                    short-term decision-making.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Logical Reasoning</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Systematic Approach</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Disciplined Learning</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Growth Mindset</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="about-image-box">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <div class="line"></div>
+            <p>My current technical stack and proficiency levels</p>
+        </div>
+        <div class="skills-grid">
+            <!-- Programming Languages -->
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">C++ (Core Focus)</span>
+                    <span class="skill-tag">Python (Parallel)</span>
+                </div>
+                <div class="tech-comparison">
+                    <h4>Learning Approach</h4>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <strong>Side-by-Side</strong>
+                            <span>C++ vs Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Concept-First</strong>
+                            <span>Deep Understanding</span>
+                        </div>
+                        <div class="tech-item">
+                            <strong>Step-by-Step</strong>
+                            <span>Testing Method</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OOP Concepts -->
+            <div class="skill-category">
+                <h3><i class="fas fa-cubes"></i> OOP Concepts</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag primary">Inheritance</span>
+                    <span class="skill-tag">Single</span>
+                    <span class="skill-tag">Multi-level</span>
+                    <span class="skill-tag">Hierarchical</span>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light);">
+                    Completed foundational OOP topics with strong understanding of inheritance patterns. 
+                    Built comparative mini-projects including a Banking System.
+                </p>
+            </div>
+
+            <!-- Data Science -->
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Data Science Path</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Math Foundations</span>
+                    <span class="skill-tag">Probability & Stats</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                    <span class="skill-tag">Visualization</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                </div>
+            </div>
+
+            <!-- Learning Preferences -->
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Learning Preferences</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Easy English</span>
+                    <span class="skill-tag">Teacher-style</span>
+                    <span class="skill-tag">Concept Clarity</span>
+                    <span class="skill-tag">Practice-based</span>
+                    <span class="skill-tag">Q&A Format</span>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-light);">
+                    Values depth over speed, understanding over memorization, and systems thinking over surface learning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <div class="line"></div>
+            <p>Academic work and hands-on projects</p>
+        </div>
+        <div class="projects-grid">
+            <!-- E-commerce Database -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>E-Commerce Database</h3>
+                    <span>Academic Project</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-tech">
+                        <span>SQL</span>
+                        <span>Database Design</span>
+                        <span>10 Tables</span>
+                    </div>
+                    <p>
+                        Comprehensive e-commerce database project with 10 tables. Proposal ready, 
+                        focused on real-world business problem solving.
+                    </p>
+                    <span class="project-status">In Progress</span>
+                </div>
+            </div>
+
+            <!-- Banking System -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Banking System</h3>
+                    <span>Comparative Mini-Project</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>OOP</span>
+                        <span>Python</span>
+                    </div>
+                    <p>
+                        Built a comparative mini-project to compare C++ vs Python implementations, 
+                        demonstrating OOP concepts including inheritance.
+                    </p>
+                    <span class="project-status">Completed</span>
+                </div>
+            </div>
+
+            <!-- Future Projects Placeholder -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Simple Game Project</h3>
+                    <span>Planned</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-tech">
+                        <span>C++</span>
+                        <span>Game Dev</span>
+                    </div>
+                    <p>
+                        Plan to build a simple game after achieving early C++ mastery. 
+                        Following a 30-day structured roadmap.
+                    </p>
+                    <span class="project-status">Planned</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path Section -->
+    <section id="learning" class="learning">
+        <div class="section-header">
+            <h2>Learning Roadmap</h2>
+            <div class="line"></div>
+            <p>My structured approach to becoming a data scientist</p>
+        </div>
+        <div class="roadmap">
+            <div class="roadmap-item">
+                <h4><i class="fas fa-calculator"></i> Mathematical Foundations</h4>
+                <p>Building strong math foundations for data science</p>
+                <span class="status">In Progress</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-dice"></i> Probability & Statistics</h4>
+                <p>Understanding statistical inference and probability</p>
+                <span class="status">Upcoming</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-laptop-code"></i> Programming Mastery</h4>
+                <p>C++ core focus + Python parallel learning</p>
+                <span class="status">In Progress</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-database"></i> Feature Engineering</h4>
+                <p>Data preprocessing and feature selection</p>
+                <span class="status">Upcoming</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-chart-pie"></i> Visualization</h4>
+                <p>Data storytelling through visualizations</p>
+                <span class="status">Upcoming</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-robot"></i> Machine Learning</h4>
+                <p>ML algorithms and practical applications</p>
+                <span class="status">Upcoming</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-network-wired"></i> Deep Learning</h4>
+                <p>Neural networks and advanced AI</p>
+                <span class="status">Future Goal</span>
+            </div>
+            <div class="roadmap-item">
+                <h4><i class="fas fa-comments"></i> NLP</h4>
+                <p>Natural Language Processing</p>
+                <span class="status">Future Goal</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personality & Values -->
+    <section class="personality">
+        <div class="section-header">
+            <h2>Personality & Values</h2>
+            <div class="line"></div>
+            <p>What defines me as a learner and person</p>
+        </div>
+        <div class="traits-grid">
+            <div class="trait-card">
+                <i class="fas fa-chess"></i>
+                <h4>Structured</h4>
+                <p>Follows roadmaps and systematic approaches</p>
+            </div>
+            <div class="trait-card">
+                <i class="fas fa-bullseye"></i>
+                <h4>Ambitious</h4>
+                <p>Aims to stand out and achieve excellence</p>
+            </div>
+            <div class="trait-card">
+                <i class="fas fa-search"></i>
+                <h4>Analytical</h4>
+                <p>Strong logical reasoning and pattern recognition</p>
+            </div>
+            <div class="trait-card">
+                <i class="fas fa-sync"></i>
+                <h4>Persistent</h4>
+                <p>Never quits - repeated practice until mastery</p>
+            </div>
+            <div class="trait-card">
+                <i class="fas fa-eye"></i>
+                <h4>Self-Aware</h4>
+                <p>Honest about knowledge gaps, seeks feedback</p>
+            </div>
+            <div class="trait-card">
+                <i class="fas fa-rocket"></i>
+                <h4>Growth-Oriented</h4>
+                <p>High potential with drive for continuous improvement</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section class="goals">
+        <div class="section-header">
+            <h2>Goals & Vision</h2>
+            <div class="line"></div>
+            <p>What I aspire to achieve</p>
+        </div>
+        <div class="goals-grid">
+            <div class="goal-card">
+                <h3><i class="fas fa-trophy"></i> Short-Term Goals</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Complete 3 strong end-to-end projects</li>
+                    <li><i class="fas fa-check"></i> Master Git and collaborative workflows</li>
+                    <li><i class="fas fa-check"></i> Build strong statistical intuition</li>
+                    <li><i class="fas fa-check"></i> Start publishing technical write-ups</li>
+                </ul>
+            </div>
+            <div class="goal-card">
+                <h3><i class="fas fa-graduation-cap"></i> Academic Goals</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Top 10% graduate performance</li>
+                    <li><i class="fas fa-check"></i> Research experience (e.g., churn prediction)</li>
+                    <li><i class="fas fa-check"></i> GitHub-ready documentation</li>
+                    <li><i class="fas fa-check"></i> One research-style mini paper</li>
+                </ul>
+            </div>
+            <div class="goal-card">
+                <h3><i class="fas fa-rocket"></i> Long-Term Vision</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> ML/AI specialization</li>
+                    <li><i class="fas fa-check"></i> International opportunities</li>
+                    <li><i class="fas fa-check"></i> Research + industry hybrid path</li>
+                    <li><i class="fas fa-check"></i> Stand out in professional settings</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <div class="line"></div>
+        </div>
+        <p>
+            I'm always open to discussing projects, learning opportunities, or answering questions. 
+            Feel free to reach out!
+        </p>
+        <div class="contact-links">
+            <a href="#" class="contact-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="#" class="contact-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="#" class="contact-link">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Naqia Firdous. Built with passion for Data Science.</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '2rem';
+            navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Progress Bar Animation on Scroll
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.dataset.width || '80%';
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            progressObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
